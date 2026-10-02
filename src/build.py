@@ -1,3 +1,7 @@
+# /// script
+# requires-python = ">=3.9"
+# dependencies = ["fonttools[woff]"]
+# ///
 """
 Generates the SVG assets for the GitHub profile README.
 
@@ -6,7 +10,9 @@ characters each file uses and embedded as base64 WOFF2. That matters because
 GitHub serves README images through its image proxy as plain <img> tags, which
 can't load external fonts, scripts or links.
 
-Run:  python3 src/build.py      (needs: pip install fonttools brotli)
+Run:  uv run src/build.py
+  or: pip install "fonttools[woff]" && python3 src/build.py
+(WOFF2 output needs brotli, which plain `fonttools` does not pull in.)
 Edit the PROFILE dict below and re-run to update the text.
 """
 import base64
@@ -33,7 +39,7 @@ PROFILE = {
         ("org", "University of Basel · IT Security & Architecture"),
         ("study", "B.Sc. Computer Science, University of Basel"),
         ("focus", "SecOps · Vulnerability Mgmt · Web App Security"),
-        ("tools", "Nessus · Microsoft XDR · Azure · AD · Burp Suite"),
+        ("tools", "KQL (Sentinel, MDE) · Elastic · Burp Suite · AD"),
         ("code", "Java · Python · C · SQL"),
     ],
     "now": [

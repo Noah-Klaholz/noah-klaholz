@@ -1,0 +1,6 @@
+# Local Python / uv tooling — build.py declares its deps inline (PEP 723)
+.venv/
+__pycache__/
+pyproject.toml
+uv.lock
+.python-version
